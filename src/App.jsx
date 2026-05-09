@@ -5,6 +5,7 @@ import ResultSummary from './components/ResultSummary'
 import AmortizationTable from './components/AmortizationTable'
 import ApplicationForm from './components/ApplicationForm'
 import ApplicationsList from './components/ApplicationsList'
+import ApplicationDetail from './components/ApplicationDetail'
 import { simulateCredit, createApplication } from './services/api'
 import styles from './App.module.css'
 
@@ -272,6 +273,16 @@ export default function App() {
                 <ApplicationsList key={listKey} onSelect={selectApplication} />
               </main>
             </>
+        )}
+
+        {/* Vista detalle */}
+        {view === 'application-detail' && selectedApplicationId !== null && (
+            <main className={styles.mainNarrowTop}>
+              <ApplicationDetail
+                  applicationId={selectedApplicationId}
+                  onBack={goToApplications}
+              />
+            </main>
         )}
 
         {/* Footer */}
