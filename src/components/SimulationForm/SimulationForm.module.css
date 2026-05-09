@@ -1,0 +1,183 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+}
+
+.label {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 0.5rem;
+  letter-spacing: -0.01em;
+}
+
+.labelHint {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  font-weight: 500;
+  color: var(--text-subtle);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.input {
+  width: 100%;
+  background: var(--input-bg);
+  border: 1px solid var(--input-border);
+  border-radius: 0.875rem;
+  padding: 0.875rem 1rem;
+  font-size: 1rem;
+  font-family: var(--font-sans);
+  color: var(--text);
+  transition: border-color 150ms, box-shadow 150ms, background 150ms;
+}
+
+.input::placeholder {
+  color: var(--text-subtle);
+}
+
+.input:focus {
+  outline: none;
+  border-color: var(--input-border-focus);
+  box-shadow: 0 0 0 3px var(--input-ring-focus);
+}
+
+.input:disabled {
+  background: var(--bg-muted);
+  color: var(--text-subtle);
+  cursor: not-allowed;
+}
+
+.error {
+  font-size: 0.8125rem;
+  color: var(--error-text-muted);
+  margin: 0.5rem 0 0;
+  font-weight: 500;
+}
+
+/* Selector de vehículo */
+.vehicleGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.625rem;
+}
+
+.vehicleOption {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.375rem;
+  padding: 1.25rem 1rem;
+  border-radius: 1rem;
+  border: 1.5px solid var(--border);
+  background: var(--bg-elevated);
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: all 150ms;
+  font-family: var(--font-sans);
+}
+
+.vehicleOption:hover {
+  border-color: var(--border-strong);
+  color: var(--text);
+}
+
+.vehicleOptionActive {
+  border-color: var(--color-lime-400);
+  background: var(--color-lime-400);
+  color: var(--color-ink-950);
+}
+
+.vehicleOptionActive:hover {
+  border-color: var(--color-lime-400);
+  color: var(--color-ink-950);
+}
+
+.vehicleLabel {
+  font-weight: 700;
+  font-size: 0.9375rem;
+  letter-spacing: -0.01em;
+}
+
+.vehicleSublabel {
+  font-size: 0.75rem;
+  font-weight: 500;
+  opacity: 0.7;
+  margin-top: -0.25rem;
+}
+
+/* Preview de monto a financiar */
+.preview {
+  background: var(--bg-subtle);
+  border: 1px dashed var(--border-accent);
+  border-radius: 0.875rem;
+  padding: 1rem 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.previewLabel {
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.previewValue {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text);
+  letter-spacing: -0.025em;
+}
+
+/* Botón submit estilo Roda - pill lima */
+.submit {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.625rem;
+  width: 100%;
+  background: var(--color-lime-400);
+  color: var(--color-ink-950);
+  font-weight: 700;
+  font-size: 1rem;
+  font-family: var(--font-sans);
+  letter-spacing: -0.01em;
+  padding: 1rem 1.5rem;
+  border-radius: 9999px;
+  border: none;
+  cursor: pointer;
+  transition: background 150ms, transform 100ms;
+  margin-top: 0.5rem;
+}
+
+.submit:hover:not(:disabled) {
+  background: var(--color-lime-300);
+}
+
+.submit:active:not(:disabled) {
+  transform: scale(0.98);
+}
+
+.submit:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.submit:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px var(--ring-focus);
+}
