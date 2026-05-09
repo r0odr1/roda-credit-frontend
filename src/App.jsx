@@ -4,6 +4,7 @@ import SimulationForm from './components/SimulationForm'
 import ResultSummary from './components/ResultSummary'
 import AmortizationTable from './components/AmortizationTable'
 import ApplicationForm from './components/ApplicationForm'
+import ApplicationsList from './components/ApplicationsList'
 import { simulateCredit, createApplication } from './services/api'
 import styles from './App.module.css'
 
@@ -19,10 +20,18 @@ export default function App() {
   const [applicationSuccess, setApplicationSuccess] = useState(null)
   const [globalError, setGlobalError] = useState(null)
   const [showApplicationForm, setShowApplicationForm] = useState(false)
-  
+
+  const [listKey, setListKey] = useState(0)
+
   function goToSimulator() {
     setView('simulator')
     setSelectedApplicationId(null)
+  }
+
+  function goToApplications() {
+    setListKey((k) => k + 1)
+    setSelectedApplicationId(null)
+    setView('applications')
   }
 
   function selectApplication(id) {
@@ -96,7 +105,7 @@ export default function App() {
                 <span className={styles.navLabel}>Simular</span>
               </button>
               <button
-                  onClick={()=> {}}
+                  onClick={goToApplications}
                   className={`${styles.navItem} ${applicationsTabActive ? styles.navItemActive : ''}`}
               >
                 <ListChecks size={14} strokeWidth={2} />
@@ -236,6 +245,31 @@ export default function App() {
                     )}
                   </section>
                 </div>
+              </main>
+            </>
+        )}
+
+        {/* Vista listado */}
+        {view === 'applications' && (
+            <>
+              <section className={styles.heroSecondary}>
+                <div className={styles.heroSecondaryInner}>
+                  <p className={styles.heroEyebrow}>
+                    <span className={styles.heroEyebrowDot} />
+                    Historial · Persistencia en PostgreSQL
+                  </p>
+                  <h1 className={styles.heroTitleMd}>
+                    Solicitudes <span className={styles.heroTitleAccent}>recibidas</span>
+                  </h1>
+                  <p className={styles.heroLead}>
+                    Todas las solicitudes formales registradas en la base de datos. Click
+                    en una tarjeta para ver el detalle completo.
+                  </p>
+                </div>
+              </section>
+
+              <main className={styles.mainNarrow}>
+                <ApplicationsList key={listKey} onSelect={selectApplication} />
               </main>
             </>
         )}
