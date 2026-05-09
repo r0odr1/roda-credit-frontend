@@ -2,11 +2,13 @@ import { useState } from 'react'
 import { CheckCircle2, AlertCircle, ListChecks, Calculator, ArrowRight } from 'lucide-react'
 import SimulationForm from './components/SimulationForm'
 import ResultSummary from './components/ResultSummary'
+import AmortizationTable from './components/AmortizationTable'
 import { simulateCredit, createApplication } from './services/api'
 import styles from './App.module.css'
 
 export default function App() {
   const [view, setView] = useState('simulator')
+  const [selectedApplicationId, setSelectedApplicationId] = useState(null)
 
   const [simulationInput, setSimulationInput] = useState(null)
   const [simulationResult, setSimulationResult] = useState(null)
@@ -19,6 +21,12 @@ export default function App() {
   
   function goToSimulator() {
     setView('simulator')
+    setSelectedApplicationId(null)
+  }
+
+  function selectApplication(id) {
+    setSelectedApplicationId(id)
+    setView('application-detail')
   }
 
   const applicationsTabActive =
@@ -80,7 +88,7 @@ export default function App() {
 
             <nav className={styles.nav}>
               <button
-                  onClick={()=> {}}
+                  onClick={goToSimulator}
                   className={`${styles.navItem} ${view === 'simulator' ? styles.navItemActive : ''}`}
               >
                 <Calculator size={14} strokeWidth={2} />

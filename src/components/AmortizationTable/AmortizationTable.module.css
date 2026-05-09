@@ -1,0 +1,151 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.875rem;
+}
+
+.header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+}
+
+.title {
+  font-family: var(--font-display);
+  font-size: 1.375rem;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  color: var(--text);
+  margin: 0;
+}
+
+.count {
+  font-size: 0.75rem;
+  font-family: var(--font-mono);
+  color: var(--text-subtle);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.tableWrapper {
+  background: var(--bg-elevated);
+  border-radius: 1rem;
+  border: 1px solid var(--card-border);
+  overflow: hidden;
+}
+
+.scrollX {
+  overflow-x: auto;
+}
+
+.scrollX::-webkit-scrollbar {
+  height: 6px;
+}
+
+.scrollX::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.scrollX::-webkit-scrollbar-thumb {
+  background: var(--color-lime-400);
+  border-radius: 3px;
+}
+
+.scrollX::-webkit-scrollbar-thumb:hover {
+  background: var(--color-lime-500);
+}
+
+.table {
+  width: 100%;
+  font-size: 0.875rem;
+  border-collapse: collapse;
+}
+
+.theadRow {
+  background: var(--bg-subtle);
+  border-bottom: 1px solid var(--border);
+}
+
+.th {
+  text-align: left;
+  font-weight: 600;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-muted);
+  padding: 0.875rem 1rem;
+}
+
+.thRight {
+  text-align: right;
+}
+
+.tr {
+  border-bottom: 1px solid var(--border);
+  transition: background 100ms;
+}
+
+.tr:last-child {
+  border-bottom: 0;
+}
+
+.tr:hover {
+  background: var(--bg-subtle);
+}
+
+.td {
+  padding: 0.875rem 1rem;
+  color: var(--text);
+}
+
+.tdRight {
+  text-align: right;
+}
+
+.tdMedium {
+  font-weight: 600;
+}
+
+.tdMuted {
+  color: var(--text-muted);
+}
+
+.tdIndex {
+  padding: 0.875rem 1rem;
+  font-family: var(--font-mono);
+  font-weight: 600;
+  font-size: 0.8125rem;
+  color: var(--color-lime-600);
+}
+
+[data-theme="dark"] .tdIndex {
+  color: var(--color-lime-400);
+}
+
+.tdBalance {
+  font-weight: 600;
+  color: var(--text);
+}
+
+.toggle {
+  width: 100%;
+  padding: 0.875rem 1rem;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  font-family: var(--font-sans);
+  color: var(--link);
+  background: var(--bg-elevated);
+  border: none;
+  border-top: 1px solid var(--border);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.375rem;
+  transition: background 150ms, color 150ms;
+}
+
+.toggle:hover {
+  background: var(--bg-subtle);
+  color: var(--link-hover);
+}
