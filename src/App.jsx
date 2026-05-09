@@ -3,6 +3,7 @@ import { CheckCircle2, AlertCircle, ListChecks, Calculator, ArrowRight } from 'l
 import SimulationForm from './components/SimulationForm'
 import ResultSummary from './components/ResultSummary'
 import AmortizationTable from './components/AmortizationTable'
+import ApplicationForm from './components/ApplicationForm'
 import { simulateCredit, createApplication } from './services/api'
 import styles from './App.module.css'
 
