@@ -6,6 +6,7 @@ import AmortizationTable from './components/AmortizationTable'
 import ApplicationForm from './components/ApplicationForm'
 import ApplicationsList from './components/ApplicationsList'
 import ApplicationDetail from './components/ApplicationDetail'
+import ThemeToggle from './components/ThemeToggle'
 import { simulateCredit, createApplication } from './services/api'
 import styles from './App.module.css'
 
@@ -113,7 +114,11 @@ export default function App() {
                 <span className={styles.navLabel}>Solicitudes</span>
               </button>
             </nav>
-            
+
+            <div className={styles.headerActions}>
+              <span className={styles.langTag}>ES</span>
+              <ThemeToggle />
+            </div>
           </div>
         </header>
 

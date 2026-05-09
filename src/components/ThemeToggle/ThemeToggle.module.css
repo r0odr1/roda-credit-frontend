@@ -1,0 +1,39 @@
+.toggle {
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 9999px;
+  background: var(--bg-muted);
+  border: 1px solid var(--border);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 150ms, border-color 150ms, transform 100ms;
+  padding: 0;
+}
+
+.toggle:hover {
+  background: var(--bg-subtle);
+  border-color: var(--border-strong);
+}
+
+.toggle:active {
+  transform: scale(0.94);
+}
+
+.toggle:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px var(--ring-focus);
+}
+
+.iconWrap {
+  display: inline-flex;
+}
+
+.iconSun {
+  color: #F59E0B;
+}
+
+.iconMoon {
+  color: var(--color-lavender-300);
+}
