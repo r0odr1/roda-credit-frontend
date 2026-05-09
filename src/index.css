@@ -1,1 +1,183 @@
 @import "tailwindcss";
+
+/*
+  Sistema de diseño Roda
+*/
+
+@theme {
+  /* Tipografía */
+  --font-display: "Bricolage Grotesque", system-ui, sans-serif;
+  --font-sans: "Geist", system-ui, sans-serif;
+  --font-mono: "Geist Mono", ui-monospace, monospace;
+
+  /* Lima - color de marca, acento principal */
+  --color-lime-200: #E5FFA0;
+  --color-lime-300: #DDFF7A;
+  --color-lime-400: #C7F26C;
+  --color-lime-500: #B3E84F;
+  --color-lime-600: #A4D940;
+
+  /* Lavanda - acento secundario */
+  --color-lavender-200: #E9D5FF;
+  --color-lavender-300: #C4B5FD;
+  --color-lavender-400: #A78BFA;
+  --color-lavender-500: #8B5CF6;
+  --color-lavender-600: #6D28D9;
+
+  /* Ink - negros y grises profundos */
+  --color-ink-950: #0A0A0A;
+  --color-ink-900: #141414;
+  --color-ink-800: #1A1A1A;
+  --color-ink-700: #2A2A2A;
+  --color-ink-600: #404040;
+}
+
+/* cambian según el tema */
+
+:root {
+  /* Fondos */
+  --bg: #FFFFFF;
+  --bg-elevated: #FFFFFF;
+  --bg-subtle: #FAFAFA;
+  --bg-muted: #F5F5F5;
+
+  /* Texto */
+  --text: #0A0A0A;
+  --text-muted: #525252;
+  --text-subtle: #737373;
+  --text-on-accent: #0A0A0A;
+
+  /* Bordes */
+  --border: #E5E5E5;
+  --border-strong: #D4D4D4;
+  --border-accent: #C4B5FD;
+
+  /* Cards */
+  --card-bg: #FFFFFF;
+  --card-border: #E9D5FF;
+  --card-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.04), 0 1px 2px 0 rgb(0 0 0 / 0.03);
+
+  /* Inputs */
+  --input-bg: #FFFFFF;
+  --input-border: #E5E5E5;
+  --input-border-focus: #A78BFA;
+  --input-ring-focus: rgb(167 139 250 / 0.2);
+
+  /* Links - acentos morados */
+  --link: #6D28D9;
+  --link-hover: #5B21B6;
+
+  /* Estados - errores */
+  --error-bg: #FEF2F2;
+  --error-border: #FECACA;
+  --error-text: #991B1B;
+  --error-text-muted: #B91C1C;
+
+  /* Highlight de éxito */
+  --success-bg: #F7FEE7;
+  --success-border: #D9F99D;
+  --success-text: #365314;
+
+  /* Sombra de focus para botones */
+  --ring-focus: rgb(196 181 253 / 0.4);
+}
+
+[data-theme="dark"] {
+  --bg: #0A0A0A;
+  --bg-elevated: #141414;
+  --bg-subtle: #1A1A1A;
+  --bg-muted: #1F1F1F;
+
+  --text: #FFFFFF;
+  --text-muted: #A3A3A3;
+  --text-subtle: #737373;
+  --text-on-accent: #0A0A0A;
+
+  --border: #2A2A2A;
+  --border-strong: #404040;
+  --border-accent: rgb(196 181 253 / 0.3);
+
+  --card-bg: #141414;
+  --card-border: rgb(196 181 253 / 0.18);
+  --card-shadow: none;
+
+  --input-bg: #1A1A1A;
+  --input-border: #2A2A2A;
+  --input-border-focus: rgb(196 181 253 / 0.6);
+  --input-ring-focus: rgb(196 181 253 / 0.15);
+
+  --link: #C4B5FD;
+  --link-hover: #DDD6FE;
+
+  --error-bg: rgb(127 29 29 / 0.15);
+  --error-border: rgb(220 38 38 / 0.3);
+  --error-text: #FCA5A5;
+  --error-text-muted: #F87171;
+
+  --success-bg: rgb(101 163 13 / 0.12);
+  --success-border: rgb(199 242 108 / 0.25);
+  --success-text: #DDFF7A;
+
+  --ring-focus: rgb(196 181 253 / 0.3);
+}
+
+/* BASE */
+
+html, body, #root {
+  height: 100%;
+}
+
+body {
+  font-family: var(--font-sans);
+  background: var(--bg);
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
+  font-feature-settings: "ss01", "cv11";
+  transition: background-color 200ms ease, color 200ms ease;
+}
+
+/* Animación reutilizada por varios componentes */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-up {
+  animation: fadeUp 0.4s ease-out;
+}
+
+/* Botón global usado por App.jsx - shell de la app */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background: var(--color-lime-400);
+  color: var(--text-on-accent);
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: 1rem;
+  padding: 0.875rem 1.75rem;
+  border-radius: 9999px;
+  border: none;
+  cursor: pointer;
+  transition: background 150ms, transform 100ms;
+}
+
+.btn-primary:hover:not(:disabled) {
+  background: var(--color-lime-300);
+}
+
+.btn-primary:active:not(:disabled) {
+  transform: scale(0.98);
+}
+
+.btn-primary:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.btn-primary:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px var(--ring-focus);
+}
