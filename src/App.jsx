@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { CheckCircle2, AlertCircle, ListChecks, Calculator, ArrowRight } from 'lucide-react'
 import SimulationForm from './components/SimulationForm'
+import ResultSummary from './components/ResultSummary'
 import { simulateCredit, createApplication } from './services/api'
 import styles from './App.module.css'
 
@@ -15,9 +16,10 @@ export default function App() {
   const [applicationSuccess, setApplicationSuccess] = useState(null)
   const [globalError, setGlobalError] = useState(null)
   const [showApplicationForm, setShowApplicationForm] = useState(false)
-
-
   
+  function goToSimulator() {
+    setView('simulator')
+  }
 
   const applicationsTabActive =
       view === 'applications' || view === 'application-detail'
@@ -70,7 +72,7 @@ export default function App() {
         {/* Header */}
         <header className={styles.header}>
           <div className={styles.headerInner}>
-            <button onClick={() => {}} className={styles.brand}>
+            <button onClick={goToSimulator} className={styles.brand}>
             <span className={styles.brandLogo}>
               R<span className={styles.brandLogoO}>o</span>da
             </span>
